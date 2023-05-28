@@ -1,10 +1,11 @@
 {
-  "name": "NutritionApi",
+  "name": "nutrition-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "Nutrition API for sending and retrieving nutrition data from the server",
+  "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
   },
   "keywords": [],
   "author": "Marek Kabala",
