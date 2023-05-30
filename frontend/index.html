@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Nutrition Interface</title>
+	</head>
+	<body>
+		<div class="conteiner">
+			<h1 class="header">Nutrition API interface</h1>
+			<form class="form-container" id="nutritionForm">
+				<label for="name"
+					>Name
+					<input type="text" id="name" name="name" required />
+				</label>
+
+				<label for="weightValue"
+					>Weight
+					<input type="number" id="weightValue" name="weightValue" required />
+					<select name="selectValue" id="selectValue">
+						<option value="g">g</option>
+						<option value="ml">ml</option>
+					</select>
+				</label>
+
+				<label for="fatValue"
+					>Fat
+					<input type="number" id="fatValue" name="fatValue" required />
+					g
+				</label>
+
+				<label for="saturatedfatValue"
+					>Saturated Fat
+					<input
+						type="number"
+						id="saturatedfatValue"
+						name="saturatedfatValue"
+						required />g
+				</label>
+				<label for="carbohydratesValue"
+					>Carbohydrates
+					<input
+						type="number"
+						id="carbohydratesValue"
+						name="carbohydratesValue"
+						required />g
+				</label>
+				<label for="sugarsValue"
+					>Sugars
+					<input type="number" id="sugarsValue" name="sugarsValue" required />g
+				</label>
+				<label for="fiberValue"
+					>Fiber <input type="number" id="fiberValue" name="fiberValue" />g
+				</label>
+				<label for="proteinValue"
+					>Protein
+					<input
+						type="number"
+						id="proteinValue"
+						name="proteinValue"
+						required />g
+				</label>
+				<label for="saltValue"
+					>Salt <input type="number" id="saltValue" name="saltValue" />g
+				</label>
+				<label for="cholesterolValue"
+					>Cholesterol
+					<input type="number" id="cholesterolValue" name="cholesterolValue" />g
+				</label>
+				<label for="sodiumValue"
+					>Sodium <input type="number" id="sodiumValue" name="sodiumValue" />g
+				</label>
+				<label for="potassiumValue"
+					>Potassium
+					<input type="number" id="potassiumValue" name="potassiumValue" />g
+				</label>
+				<label for="barcode"
+					>Barcode
+					<input type="number" id="barcodeValue" name="barcodeValue" />
+				</label>
+				<button class="btn" type="submit">Submit</button>
+			</form>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

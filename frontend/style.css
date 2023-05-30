@@ -1,0 +1,83 @@
+:root {
+	--shadow: 0 4px 6px -1px rgba(244, 237, 237, 0.626),
+		0 2px 4px -2px rgba(234, 231, 231, 0.1);
+	--bshadow: 0 4px 6px -1px rgba(37, 142, 184, 0.385),
+		0 2px 4px -2px rgba(53, 165, 160, 0.1);
+	--bg: rgb(94, 91, 91);
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background: var(--bg);
+	font-family: sans-serif;
+	color: rgb(196, 205, 212);
+	block-size: 100dvh;
+	inline-size: 100vw;
+	overflow-x: hidden;
+}
+.conteiner {
+	padding: 1rem;
+	height: auto;
+	margin: auto;
+	block-size: 100%;
+	max-inline-size: 600px;
+}
+.header {
+	text-align: center;
+	text-transform: capitalize;
+	margin-bottom: 2rem;
+	font-size: clamp(1.3rem, 6vw, 2.5rem);
+}
+.form-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 0.5rem;
+	border: 1px solid rgb(95, 85, 85);
+	border-radius: 5px;
+	box-shadow: var(--shadow);
+}
+.form-container > label {
+	display: grid;
+	grid-template-columns: 4fr 1fr 1fr;
+	font-size: clamp(0.7rem, 3vw, 1.1rem);
+	padding: 0 2rem;
+}
+.form-container > label:has(#barcodeValue) {
+	margin-bottom: 1rem;
+}
+.form-container :nth-child(1) {
+	grid-template-columns: 1fr 1fr;
+}
+.form-container > label > input {
+	width: 70px;
+	text-align: center;
+	outline: none;
+}
+.form-container > label:hover {
+	cursor: pointer;
+}
+.form-container > label > input:focus {
+	background-color: var(--bg);
+	border: none;
+}
+.form-container > label:focus-within {
+	color: rgb(82, 121, 172);
+	background-color: var(--bg);
+	border: 1px solid rgb(153, 147, 147);
+	border-radius: 5px;
+	padding: 0 1.5rem;
+	transform: scale(1.1);
+	box-shadow: var(--bshadow);
+}
+.form-container > label:nth-child(1) > input {
+	width: clamp(150px, 100%, 300px);
+}
+.btn {
+	width: clamp(5rem, 12vw, 8rem);
+	height: 2rem;
+	margin: 0 auto;
+}
