@@ -12,13 +12,19 @@
 			<h1 class="header">Nutrition API interface</h1>
 			<form class="form-container" id="nutritionForm">
 				<label for="name"
-					>Name
+					>Name *
 					<input type="text" id="name" name="name" required />
 				</label>
 
 				<label for="weightValue"
-					>Weight
-					<input type="number" id="weightValue" name="weightValue" required />
+					>Weight **
+					<input
+						type="number"
+						id="weightValue"
+						name="weightValue"
+						value="100"
+						readonly
+						required />
 					<select name="selectValue" id="selectValue">
 						<option value="g">g</option>
 						<option value="ml">ml</option>
@@ -26,61 +32,91 @@
 				</label>
 
 				<label for="fatValue"
-					>Fat
-					<input type="number" id="fatValue" name="fatValue" required />
+					>Fat *
+					<input
+						type="number"
+						id="fatValue"
+						name="fatValue"
+						step="0.01"
+						required />
 					g
 				</label>
 
 				<label for="saturatedfatValue"
-					>Saturated Fat
+					>Saturated Fat *
 					<input
 						type="number"
 						id="saturatedfatValue"
 						name="saturatedfatValue"
+						step="0.01"
 						required />g
 				</label>
 				<label for="carbohydratesValue"
-					>Carbohydrates
+					>Carbohydrates *
 					<input
 						type="number"
 						id="carbohydratesValue"
 						name="carbohydratesValue"
+						step="0.01"
 						required />g
 				</label>
 				<label for="sugarsValue"
-					>Sugars
-					<input type="number" id="sugarsValue" name="sugarsValue" required />g
-				</label>
-				<label for="fiberValue"
-					>Fiber <input type="number" id="fiberValue" name="fiberValue" />g
+					>Sugars *
+					<input
+						type="number"
+						id="sugarsValue"
+						name="sugarsValue"
+						step="0.01"
+						required />g
 				</label>
 				<label for="proteinValue"
-					>Protein
+					>Protein *
 					<input
 						type="number"
 						id="proteinValue"
 						name="proteinValue"
+						step="0.01"
 						required />g
 				</label>
+				<label for="fiberValue"
+					>Fiber
+					<input type="number" id="fiberValue" name="fiberValue" step="0.01" />g
+				</label>
 				<label for="saltValue"
-					>Salt <input type="number" id="saltValue" name="saltValue" />g
+					>Salt
+					<input type="number" id="saltValue" name="saltValue" step="0.01" />g
 				</label>
 				<label for="cholesterolValue"
 					>Cholesterol
-					<input type="number" id="cholesterolValue" name="cholesterolValue" />g
+					<input
+						type="number"
+						id="cholesterolValue"
+						name="cholesterolValue"
+						step="0.01" />g
 				</label>
 				<label for="sodiumValue"
-					>Sodium <input type="number" id="sodiumValue" name="sodiumValue" />g
+					>Sodium
+					<input
+						type="number"
+						id="sodiumValue"
+						name="sodiumValue"
+						step="0.01" />g
 				</label>
 				<label for="potassiumValue"
 					>Potassium
-					<input type="number" id="potassiumValue" name="potassiumValue" />g
+					<input
+						type="number"
+						id="potassiumValue"
+						name="potassiumValue"
+						step="0.01" />g
 				</label>
-				<label for="barcode"
+				<label for="barcodeValue"
 					>Barcode
 					<input type="number" id="barcodeValue" name="barcodeValue" />
 				</label>
 				<button class="btn" type="submit">Submit</button>
+				<p class="info-text">* Required filed</p>
+				<p class="info-text">** Can not change a filed Value</p>
 			</form>
 		</div>
 		<script src="script.js"></script>

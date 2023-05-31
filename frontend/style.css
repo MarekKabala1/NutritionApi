@@ -56,6 +56,10 @@ body {
 	width: 70px;
 	text-align: center;
 	outline: none;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+	margin-right: 0.5rem;
 }
 .form-container > label:hover {
 	cursor: pointer;
@@ -80,4 +84,9 @@ body {
 	width: clamp(5rem, 12vw, 8rem);
 	height: 2rem;
 	margin: 0 auto;
+	border-radius: 5px;
+	border: none;
+}
+.info-text {
+	font-size: clamp(0.5rem, 2vw, 0.8rem);
 }
