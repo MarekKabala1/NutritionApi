@@ -60,6 +60,7 @@ body {
 	border: none;
 	border-bottom: 1px solid white;
 	margin-right: 0.5rem;
+	color: rgb(196, 205, 212);
 }
 .form-container > label:hover {
 	cursor: pointer;
