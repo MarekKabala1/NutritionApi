@@ -114,6 +114,9 @@ body {
 	border-radius: 5px;
 	box-shadow: var(--shadow);
 }
+.nutrition-title {
+	text-align: center;
+}
 .nutrition-values-children,
 .nutrition-values,
 .nutrition-header-container,
@@ -127,6 +130,9 @@ body {
 	display: flex;
 	justify-content: space-between;
 	border-bottom: 1px solid white;
+}
+.nutrition-values:has(.children) h2 {
+	font-size: 0.5rem;
 }
 .children {
 	padding-left: 1rem;
