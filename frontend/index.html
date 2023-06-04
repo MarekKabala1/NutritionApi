@@ -31,6 +31,15 @@
 					</select>
 				</label>
 
+				<label for="caloriesValue"
+					>Calories *
+					<input
+						type="number"
+						id="caloriesValue"
+						name="caloriesValue"
+						required />kcal
+				</label>
+
 				<label for="fatValue"
 					>Fat *
 					<input
@@ -118,56 +127,57 @@
 				<p class="info-text">* Required filed</p>
 				<p class="info-text">** Can not change a filed Value</p>
 			</form>
+			<input class="search" type="search" name="search" id="search" placeholder="Search Item">
 			<div class="nutriton-data-container">
 				<div class="nutrition-data-wrapper">
 					<div class="nutrition-header-container">
 						<h1 class="nutrition-data-header">Nutrition Facts</h1>
-						<h2 class="nutrition-title">Beff</h2>
+						<h2 id="title" class="nutrition-title">Beff</h2>
 						<p class="nutrition-size-value">Nutrition Values per 100g</p>
 					</div>
 					<div class="nutrition-values calories">
 						<h3 class="values-header">Calories</h3>
-						<p class="value">250</p>
+						<p id="calories" class="value">250</p>
 					</div>
 					<div class="nutrition-values-children ">
 						<div class="nutrition-values ">
 							<h3 class="values-header "> Fat</h3>
-							<p class="value">25g</p>
+							<p id="fat" class="value">25g</p>
 						</div>
 						<div class="nutrition-values children">
-							<h3 class="values-header ">Saturated Fat</h3>
-							<p class="value">12g</p>
+							<h3  class="values-header ">Saturated Fat</h3>
+							<p id="saturatedFat" class="value">12g</p>
 						</div>
 					</div>
 					<div class="nutrition-values">
 						<h3 class="values-header">Cholesterol</h3>
-						<p class="value">0.3g</p>
+						<p id="cholesterol" class="value">0.3g</p>
 					</div>
 					<div class="nutrition-values">
 						<h3 class="values-header">Sodium</h3>
-						<p class="value">0,45g</p>
+						<p id="sodium" class="value">0,45g</p>
 					</div>
 					<div class="nutrition-values-children">
 						<div class="nutrition-values  ">
 							<h3 class="values-header">Carbohydrates</h3>
-							<p class="value">25g</p>
+							<p id="Carbohydrates" class="value">25g</p>
 					 </div>
 						<div class="nutrition-values children">
 							<h3 class="values-header">Fiber</h3>
-							<p class="value">0g</p>
+							<p id="fiber" class="value">0g</p>
 						</div>
 						<div class="nutrition-values children ">
 							<h3 class="values-header ">Sugars</h3>
-							<p class="value">5g</p>
+							<p id="sugar" class="value">5g</p>
 						</div>
 					</div>
 						<div class="nutrition-values protein">
 							<h3 class="values-header">Protein</h3>
-							<p class="value">5g</p>
+							<p id="protein" class="value">5g</p>
 						</div>
 						<div class="nutrition-values">
 							<h3 class="values-header">Potassium</h3>
-							<p class="value">5g</p>
+							<p id="potassium" class="value">5g</p>
 						</div>
 				</div>
 			</div>

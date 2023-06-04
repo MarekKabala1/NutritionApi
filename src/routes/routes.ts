@@ -5,7 +5,7 @@ import { getNutrition, getNutritions, postNutrition, updateNutrition, deleteNutr
 const router = express.Router();
 
 
-router.get('/findOne', getNutrition)
+router.get(`/findOne/:name`, getNutrition)
 router.get('/', getNutritions)
 router.post('/', postNutrition)
 router.put('/:id', updateNutrition)

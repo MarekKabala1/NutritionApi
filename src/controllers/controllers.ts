@@ -12,7 +12,8 @@ const getNutritions = async (req: Request, res: Response) => {
 }
 const getNutrition = async (req: Request, res: Response) => {
   try {
-    const nutritions = await Nutrition.findOne().exec();
+    const name = req.params.name
+    const nutritions = await Nutrition.findOne({ name: name }).exec();
     res.status(200).json(nutritions);
   } catch (err) {
     res.status(500).json({ err: 'Something went wrong could not fetch data' });
