@@ -127,13 +127,17 @@
 				<p class="info-text">* Required filed</p>
 				<p class="info-text">** Can not change a filed Value</p>
 			</form>
-			<input class="search" type="search" name="search" id="search" placeholder="Search Item">
+			<form class="productForm" id="productForm">
+				<input type="text" class="search" name="search" id="search" placeholder="Search Item"/>
+				<button id="btn" class="btn" type="submit">Submit</button>
+			</form>
+
 			<div class="nutriton-data-container">
 				<div class="nutrition-data-wrapper">
 					<div class="nutrition-header-container">
 						<h1 class="nutrition-data-header">Nutrition Facts</h1>
 						<h2 id="title" class="nutrition-title">Beff</h2>
-						<p class="nutrition-size-value">Nutrition Values per 100g</p>
+						<p id="nutrition-size-value" class="nutrition-size-value">Nutrition Values per 100<span>g</span></p>
 					</div>
 					<div class="nutrition-values calories">
 						<h3 class="values-header">Calories</h3>
@@ -160,7 +164,7 @@
 					<div class="nutrition-values-children">
 						<div class="nutrition-values  ">
 							<h3 class="values-header">Carbohydrates</h3>
-							<p id="Carbohydrates" class="value">25g</p>
+							<p id="carbohydrates" class="value">25g</p>
 					 </div>
 						<div class="nutrition-values children">
 							<h3 class="values-header">Fiber</h3>

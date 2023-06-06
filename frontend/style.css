@@ -96,7 +96,11 @@ body {
 }
 
 /* Label styles */
-
+.productForm {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+}
 .search {
 	display: block;
 	text-align: center;
@@ -104,6 +108,7 @@ body {
 	border-radius: 5px;
 	border: none;
 	height: 1.5rem;
+	width: 70%;
 }
 
 .nutriton-data-container {

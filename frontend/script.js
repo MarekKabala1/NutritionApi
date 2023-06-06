@@ -1,7 +1,7 @@
 document
 	.getElementById('nutritionForm')
 	.addEventListener('submit', function (event) {
-		event.preventDefault(); // Prevent the form from submitting
+		event.preventDefault();
 
 		// Retrieve form values
 		const name = document.getElementById('name').value;
@@ -47,11 +47,12 @@ document
 		const saturatedFat = document.getElementById('saturatedFat');
 		const cholesterol = document.getElementById('cholesterol');
 		const sodium = document.getElementById('sodium');
-		const carbohydrates = document.getElementById('Carbohydrates');
+		const carbohydrates = document.getElementById('carbohydrates');
 		const fiber = document.getElementById('fiber');
 		const sugar = document.getElementById('sugar');
 		const protein = document.getElementById('protein');
 		const potassium = document.getElementById('potassium');
+		const nutritionSizeValue = document.querySelector('#nutrition-size-value');
 
 		title.textContent = `${name}`;
 		calories.textContent = `${caloriesValue} kcal`;
@@ -64,48 +65,46 @@ document
 		sugar.textContent = `${sugarsValue} g`;
 		protein.textContent = `${proteinValue} g`;
 		potassium.textContent = `${potassiumValue} g`;
+		nutritionSizeValue.textContent = selectValue;
 	});
-let isFetchExecuted = false;
 
-function fetchData() {
-	if (!isFetchExecuted) {
-		isFetchExecuted = true;
-		// Make a GET request to retrieve data
-		fetch('http://localhost:5000/nutrition', {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				console.log(data);
-			})
-			.catch((error) => {
-				console.log('Error:', error);
-			});
+const productForm = document.getElementById('productForm');
+productForm.addEventListener('submit', async function (event) {
+	const productName = document.getElementById('search').value;
+	event.preventDefault();
+	console.log(productName);
+
+	try {
+		const response = await fetch(
+			`http://localhost:5000/nutrition/findOne/${productName}`,
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+		);
+
+		if (response.ok) {
+			const data = await response.json();
+			console.table(data);
+			title.textContent = `${data.name.value}`;
+			calories.textContent = `${data.energy.value} kcal`;
+			fat.textContent = `${data.fat.value} g`;
+			saturatedFat.textContent = `${data.saturatedfat.value} g`;
+			cholesterol.textContent = `${data.cholesterol.value} g`;
+			sodium.textContent = `${data.sodium.value} g`;
+			carbohydrates.textContent = `${data.carbohydrates.value}g`;
+			fiber.textContent = `${data.fiber.value} g`;
+			sugar.textContent = `${data.sugars.value} g`;
+			protein.textContent = `${data.protein.value} g`;
+			potassium.textContent = `${data.potassium.value} g`;
+			nutritionSizeValue.textContent = data.weight.unit;
+		} else {
+			console.log('Error:', response.status);
+		}
+	} catch (error) {
+		console.log('Error:', error);
 	}
-}
-fetchData();
-console.log(isFetchExecuted);
-
-// Make a POST request to send data
-// const dataToSend = {
-// 	name: 'John Doe',
-// 	age: 25,
-// };
-
-// fetch('https://api.example.com/data', {
-// 	method: 'POST',
-// 	headers: {
-// 		'Content-Type': 'application/json',
-// 	},
-// 	body: JSON.stringify(dataToSend),
-// })
-// 	.then((response) => response.json())
-// 	.then((data) => {
-// 		console.log(data);
-// 	})
-// 	.catch((error) => {
-// 		console.log(error);
-// 	});
+	this.reset();
+});
