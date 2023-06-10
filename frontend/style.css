@@ -29,8 +29,14 @@ body {
 .header {
 	text-align: center;
 	text-transform: capitalize;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 	font-size: clamp(1.3rem, 6vw, 2.5rem);
+}
+.subTitlle {
+	text-align: center;
+	text-transform: capitalize;
+	margin-bottom: 1rem;
+	font-size: clamp(1rem, 5vw, 2rem);
 }
 .form-container {
 	display: flex;
@@ -40,7 +46,7 @@ body {
 	border: 1px solid rgb(95, 85, 85);
 	border-radius: 5px;
 	box-shadow: var(--shadow);
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 .form-container > label {
 	display: grid;
@@ -67,11 +73,13 @@ body {
 .form-container > label:hover {
 	cursor: pointer;
 }
-.form-container > label > input:focus {
+.form-container > label > input:focus,
+.search:focus {
 	background-color: var(--bg);
 	border: none;
 }
-.form-container > label:focus-within {
+.form-container > label:focus-within,
+.search:focus-within {
 	color: rgb(82, 121, 172);
 	background-color: var(--bg);
 	border: 1px solid rgb(153, 147, 147);
@@ -88,8 +96,9 @@ body {
 	height: 2rem;
 	margin: 0 auto;
 	border-radius: 5px;
-	border: 4px solid var(--fonts);
+	border: 3px solid var(--fonts);
 	cursor: pointer;
+	background-color: transparent;
 }
 .info-text {
 	font-size: clamp(0.5rem, 2vw, 0.8rem);
@@ -105,10 +114,15 @@ body {
 	display: block;
 	text-align: center;
 	margin: 0 auto 1rem auto;
-	border-radius: 5px;
 	border: none;
+	outline: none;
 	height: 1.5rem;
-	width: 70%;
+	width: 60%;
+	background-color: transparent;
+	border-bottom: 1px solid var(--fonts);
+}
+.search:focus-within::placeholder {
+	color: rgb(82, 121, 172);
 }
 
 .nutriton-data-container {
@@ -116,6 +130,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 1rem;
 }
 .nutrition-data-wrapper {
 	display: flex;
@@ -132,6 +147,7 @@ body {
 }
 .nutrition-title {
 	text-align: center;
+	text-transform: capitalize;
 }
 .nutrition-values-children,
 .nutrition-values,

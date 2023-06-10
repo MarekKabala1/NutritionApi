@@ -1,110 +1,194 @@
-document
+const titleL = document.getElementById('title');
+const caloriesL = document.getElementById('calories');
+const fatL = document.getElementById('fat');
+const saturatedFatL = document.getElementById('saturatedFat');
+const cholesterolL = document.getElementById('cholesterol');
+const sodiumL = document.getElementById('sodium');
+const carbohydratesL = document.getElementById('carbohydrates');
+const fiberL = document.getElementById('fiber');
+const sugarL = document.getElementById('sugar');
+const proteinL = document.getElementById('protein');
+const potassiumL = document.getElementById('potassium');
+const saltL = document.getElementById('salt');
+const nutritionSizeValueL = document.querySelector('#nutrition-size-value');
+
+const nutritionForm = document
 	.getElementById('nutritionForm')
-	.addEventListener('submit', function (event) {
+	.addEventListener('submit', async function (event) {
 		event.preventDefault();
 
 		// Retrieve form values
+		/**
+		 * @type {string}
+		 */
 		const name = document.getElementById('name').value;
-		const weightValue = document.getElementById('weightValue').value;
-		const caloriesValue = document.getElementById('caloriesValue').value;
-		const selectValue = document.getElementById('selectValue').value;
-		const fatValue = document.getElementById('fatValue').value;
-		const saturatedfatValue =
-			document.getElementById('saturatedfatValue').value;
-		const carbohydratesValue =
-			document.getElementById('carbohydratesValue').value;
-		const sugarsValue = document.getElementById('sugarsValue').value;
-		const proteinValue = document.getElementById('proteinValue').value;
-		const fiberValue = document.getElementById('fiberValue').value;
-		const saltValue = document.getElementById('saltValue').value;
-		const cholesterolValue = document.getElementById('cholesterolValue').value;
-		const sodiumValue = document.getElementById('sodiumValue').value;
-		const potassiumValue = document.getElementById('potassiumValue').value;
-		const barcodeValue = document.getElementById('barcodeValue').value;
+		/**
+		 * @type {number}
+		 */
+		const weight = document.getElementById('weightValue').value;
+		/**
+		 * @type {number}
+		 */
+		const energy = document.getElementById('caloriesValue').value;
+		/**
+		 * @type {string}
+		 */
+		const select = document.getElementById('selectValue').value;
+		/**
+		 * @type {number}
+		 */
+		const fat = document.getElementById('fatValue').value;
+		/**
+		 * @type {number}
+		 */
+		const saturatedfat = document.getElementById('saturatedfatValue').value;
+		/**
+		 * @type {number}
+		 */
+		const carbohydrates = document.getElementById('carbohydratesValue').value;
+		/**
+		 * @type {number}
+		 */
+		const sugars = document.getElementById('sugarsValue').value;
+		/**
+		 * @type {number}
+		 */
+		const protein = document.getElementById('proteinValue').value;
+		/**
+		 * @type {number}
+		 */
+		const fiber = document.getElementById('fiberValue').value;
+		/**
+		 * @type {number}
+		 */
+		const salt = document.getElementById('saltValue').value;
+		/**
+		 * @type {number}
+		 */
+		const cholesterol = document.getElementById('cholesterolValue').value;
+		/**
+		 * @type {number}
+		 */
+		const sodium = document.getElementById('sodiumValue').value;
+		/**
+		 * @type {number}
+		 */
+		const potassium = document.getElementById('potassiumValue').value;
+		/**
+		 * @type {number}
+		 */
+		const barcode = document.getElementById('barcodeValue').value;
 
 		console.log('Form Values:', {
 			name,
-			caloriesValue,
-			weightValue,
-			selectValue,
-			fatValue,
-			saturatedfatValue,
-			carbohydratesValue,
-			sugarsValue,
-			proteinValue,
-			fiberValue,
-			saltValue,
-			cholesterolValue,
-			sodiumValue,
-			potassiumValue,
-			barcodeValue,
+			energy,
+			weight,
+			select,
+			fat,
+			saturatedfat,
+			carbohydrates,
+			sugars,
+			protein,
+			fiber,
+			salt,
+			cholesterol,
+			sodium,
+			potassium,
+			barcode,
 		});
 		// Reset the form
 		this.reset();
-		const title = document.getElementById('title');
-		const calories = document.getElementById('calories');
-		const fat = document.getElementById('fat');
-		const saturatedFat = document.getElementById('saturatedFat');
-		const cholesterol = document.getElementById('cholesterol');
-		const sodium = document.getElementById('sodium');
-		const carbohydrates = document.getElementById('carbohydrates');
-		const fiber = document.getElementById('fiber');
-		const sugar = document.getElementById('sugar');
-		const protein = document.getElementById('protein');
-		const potassium = document.getElementById('potassium');
-		const nutritionSizeValue = document.querySelector('#nutrition-size-value');
 
-		title.textContent = `${name}`;
-		calories.textContent = `${caloriesValue} kcal`;
-		fat.textContent = `${fatValue} g`;
-		saturatedFat.textContent = `${saturatedfatValue} g`;
-		cholesterol.textContent = `${cholesterolValue} g`;
-		sodium.textContent = `${sodiumValue} g`;
-		carbohydrates.textContent = `${carbohydratesValue} g`;
-		fiber.textContent = `${fiberValue} g`;
-		sugar.textContent = `${sugarsValue} g`;
-		protein.textContent = `${proteinValue} g`;
-		potassium.textContent = `${potassiumValue} g`;
-		nutritionSizeValue.textContent = selectValue;
-	});
+		//Output sended data to Nutrition Facts Label
 
-const productForm = document.getElementById('productForm');
-productForm.addEventListener('submit', async function (event) {
-	const productName = document.getElementById('search').value;
-	event.preventDefault();
-	console.log(productName);
+		titleL.textContent = `${name}`;
+		caloriesL.textContent = `${energy} kcal`;
+		fatL.textContent = `${fat} g`;
+		saturatedFatL.textContent = `${saturatedfat} g`;
+		cholesterolL.textContent = `${cholesterol ?? 0} g`;
+		sodiumL.textContent = `${sodium ?? 0} g`;
+		carbohydratesL.textContent = `${carbohydrates} g`;
+		fiberL.textContent = `${fiber ?? 0} g`;
+		sugarL.textContent = `${sugars ?? 0} g`;
+		saltL.textContent = `${salt ?? 0} g`;
+		proteinL.textContent = `${protein} g`;
+		potassiumL.textContent = `${potassium ?? 0} g`;
+		nutritionSizeValueL.textContent = `Nutrition Values per 100 ${select}`;
 
-	try {
-		const response = await fetch(
-			`http://localhost:5000/nutrition/findOne/${productName}`,
-			{
-				method: 'GET',
+		//Send data to the server
+		//To DO make this one to one function with output data to label
+		try {
+			const response = await fetch('http://localhost:5000/nutrition', {
+				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
+				body: JSON.stringify({
+					name: name.toLowerCase(),
+					energy: { value: energy, unit: 'kcal' },
+					weight: { value: weight, unit: select },
+					fat: { value: fat, unit: 'g' },
+					saturatedfat: { value: saturatedfat, unit: 'g' },
+					carbohydrates: { value: carbohydrates ?? 0, unit: 'g' },
+					sugars: { value: sugars ?? 0, unit: 'g' },
+					protein: { value: protein, unit: 'g' },
+					fiber: { value: fiber ?? 0, unit: 'g' },
+					salt: { value: salt ?? 0, unit: 'g' },
+					cholesterol: { value: cholesterol ?? 0, unit: 'g' },
+					sodium: { value: sodium ?? 0, unit: 'g' },
+					potassium: { value: potassium ?? 0, unit: 'g' },
+				}),
+			});
+			if (response.ok) {
+				const data = await response.json();
+				console.table(data);
+			} else {
+				console.error('Error:', response.status);
 			}
-		);
-
-		if (response.ok) {
-			const data = await response.json();
-			console.table(data);
-			title.textContent = `${data.name.value}`;
-			calories.textContent = `${data.energy.value} kcal`;
-			fat.textContent = `${data.fat.value} g`;
-			saturatedFat.textContent = `${data.saturatedfat.value} g`;
-			cholesterol.textContent = `${data.cholesterol.value} g`;
-			sodium.textContent = `${data.sodium.value} g`;
-			carbohydrates.textContent = `${data.carbohydrates.value}g`;
-			fiber.textContent = `${data.fiber.value} g`;
-			sugar.textContent = `${data.sugars.value} g`;
-			protein.textContent = `${data.protein.value} g`;
-			potassium.textContent = `${data.potassium.value} g`;
-			nutritionSizeValue.textContent = data.weight.unit;
-		} else {
-			console.log('Error:', response.status);
+		} catch (error) {
+			console.error('Error:', error);
 		}
-	} catch (error) {
-		console.log('Error:', error);
-	}
-	this.reset();
-});
+	});
+//Read one product from DB.
+document
+	.getElementById('productForm')
+	.addEventListener('submit', async function (event) {
+		const productName = document.getElementById('search').value.toLowerCase();
+		event.preventDefault();
+		console.log(productName);
+
+		try {
+			const response = await fetch(
+				`http://localhost:5000/nutrition/findOne/${productName}`,
+				{
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			);
+
+			if (response.ok) {
+				const data = await response.json();
+				console.table(data);
+				titleL.textContent = `${data.name}`;
+				caloriesL.textContent = `${data.energy.value} kcal`;
+				fatL.textContent = `${data.fat.value} g`;
+				saturatedFatL.textContent = `${data.saturatedfat.value} g`;
+				cholesterolL.textContent = `${data.cholesterol.value} g`;
+				sodiumL.textContent = `${data.sodium.value} g`;
+				carbohydratesL.textContent = `${data.carbohydrates.value}g`;
+				fiberL.textContent = `${data.fiber.value} g`;
+				sugarL.textContent = `${data.sugars.value} g`;
+				saltL.textContent = `${data.salt.value} g`;
+				proteinL.textContent = `${data.protein.value} g`;
+				potassiumL.textContent = `${data.potassium.value} g`;
+				nutritionSizeValueL.textContent = `Nutrition Values per 100 ${data.weight.unit}`;
+			} else {
+				console.error('Error:', response.status.json);
+			}
+		} catch (error) {
+			console.error('Error:', error);
+		}
+		this.reset();
+	});

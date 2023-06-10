@@ -12,6 +12,11 @@ const nutritionSchema = new Schema<NutritionTypes, Model<NutritionTypes>>({
     unit: String,
     required: Boolean
   },
+  energy: {
+    value: Number,
+    unit: String,
+    require: Boolean
+  },
   fat: {
     value: Number,
     unit: String,
@@ -57,7 +62,7 @@ const nutritionSchema = new Schema<NutritionTypes, Model<NutritionTypes>>({
     value: Number,
     unit: String,
   },
-})
+}, { versionKey: false })
 
 const Nutrition = mongoose.model<NutritionTypes>('Nutrition', nutritionSchema)
 export { Nutrition }

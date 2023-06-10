@@ -13,10 +13,16 @@ const getNutritions = async (req: Request, res: Response) => {
 const getNutrition = async (req: Request, res: Response) => {
   try {
     const name = req.params.name
-    const nutritions = await Nutrition.findOne({ name: name }).exec();
+    // Escape special characters for regex
+    const escapedName = name.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+    // Replace spaces with a pattern that matches optional spaces
+    const regexPattern = escapedName.replace(/\s/g, '[-\\s]?');
+    // Create regex pattern with case-insensitivity
+    const regex = new RegExp(`^${regexPattern}$`, 'i');
+    const nutritions = await Nutrition.findOne({ name: regex }).exec();
     res.status(200).json(nutritions);
   } catch (err) {
-    res.status(500).json({ err: 'Something went wrong could not fetch data' });
+    res.status(500).json({ err: 'Something went wrong could not fetch data. Check connection with internet' });
   }
 }
 

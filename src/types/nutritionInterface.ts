@@ -7,6 +7,11 @@ export interface NutritionTypes extends Document {
 		unit: String,
 		required: true
 	},
+	energy: {
+		value: Number,
+		unit: String,
+		require: Boolean
+	},
 	fat: {
 		value: Number,
 		unit: String,
