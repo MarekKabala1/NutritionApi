@@ -20,6 +20,6 @@ app.use(express.json())
 
 app.use('/nutrition', routes)
 
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log(`Application started on http://localhost:${port}/nutrition`.underline.cyan)
 })
