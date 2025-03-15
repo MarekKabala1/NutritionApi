@@ -3,7 +3,7 @@ import { exit } from 'node:process'
 
 const connectDB = async () => {
   try {
-    const connect = await mongoose.connect(process.env.MONGO_URI || '', { dbName: process.env.});
+    const connect = await mongoose.connect(process.env.MONGO_URI || '', { dbName: process.env.DB_NAME });
     console.log(`Mongo DB connected : ${connect.connection.host}`.underline.green)
   } catch (error) {
     new Error('Something went wrong!!! Could not connect to database to fetch Data')
