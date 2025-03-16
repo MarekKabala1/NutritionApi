@@ -5,24 +5,34 @@ import { Nutrition } from "../models/schema"
 const getNutritions = async (req: Request, res: Response) => {
   try {
     const nutritions = await Nutrition.find()
+    if (!nutritions || nutritions.length === 0) {
+      return res.status(404).json({ err: 'No nutrition data found' });
+    }
     res.status(200).json(nutritions);
   } catch (err) {
-    res.status(500).json({ err: 'Something went wrong could not fetch data' });
+    res.status(500).json({ err: 'Database error: Could not fetch nutrition data' });
   }
 }
+
 const getNutrition = async (req: Request, res: Response) => {
   try {
     const name = req.params.name
-    // Escape special characters for regex
+    if (!name) {
+      return res.status(400).json({ err: 'Name parameter is required' });
+    }
+
     const escapedName = name.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-    // Replace spaces with a pattern that matches optional spaces
     const regexPattern = escapedName.replace(/\s/g, '[-\\s]?');
-    // Create regex pattern with case-insensitivity
     const regex = new RegExp(`^${regexPattern}$`, 'i');
-    const nutritions = await Nutrition.findOne({ name: regex }).exec();
-    res.status(200).json(nutritions);
+
+    const nutrition = await Nutrition.findOne({ name: regex }).exec();
+    if (!nutrition) {
+      return res.status(404).json({ err: `Nutrition with name "${name}" not found` });
+    }
+
+    res.status(200).json(nutrition);
   } catch (err) {
-    res.status(500).json({ err: 'Something went wrong could not fetch data. Check connection with internet' });
+    res.status(500).json({ err: 'Database error: Could not fetch nutrition data' });
   }
 }
 
